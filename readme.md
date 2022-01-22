@@ -1,5 +1,57 @@
 # Streaming attacker
 
+Streaming attacker is a stress testing tool for streaming server
+
+via multiple goroutine process to simulate multi-sources pushing streaming by protocol rtmp
+
+## Prerequisite
+
+- Make sure the environment with `ffmpeg` cause tool execute `ffmpeg` directly
+
+- Prepare test streaming data ready
+
+## Usage
+
+### Build
+
+Build binary according to your os
+
+Or get some help
+
+```sh
+make help
+```
+
+Example of building mac binary
+
+```sh
+make build-mac
+```
+
+### execution
+
+```sh
+./attacker -n=20 -s=stream-testing.kfs.io -t=A -f=./audio/example.mp4
+```
+
+Above command would spawn 20 goroutines, and start rtmp streaming respectively.
+
+And naming each streaming with A1, A2, ... A20 order by order.
+
+## Arguments
+
+- c: `ffmpeg` path
+- n: Client numbers in simulation
+- t: Tag for naming，default with A
+- s: Target URL
+- p: Port
+- a: Streaming application
+- f: File path for streaming test
+
+----------------------------------------
+
+# Streaming attacker
+
 這是一個用在 streaming server 上的壓力測試工具
 
 此工具可以用來針對特定 streaming server 進行 rtmp push 端的壓力測試
